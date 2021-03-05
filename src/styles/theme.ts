@@ -21,9 +21,10 @@ export default {
         medium: 500,
     },
     spacings: {
+        xsmall: '0.8rem',
         small: '1.2rem',
         medium: '1.8rem',
-        xlarge: '3.2rem',
+        large: '3.2rem',
     },
     radius: {
         medium: '0.8rem',

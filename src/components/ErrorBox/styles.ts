@@ -10,11 +10,8 @@ export const ErrorBox = styled.div`
 export const ImageContainer = AvatarUpload.ImageContainer
 
 export const ErrorInfo = styled.div`
-    ${({ theme }) => css`
-        display: flex;
-        flex-direction: column;
-        margin-left: ${theme.spacings.xlarge};
-    `}
+    display: flex;
+    flex-direction: column;
 `
 
 export const ErrorMessage = styled.p`
