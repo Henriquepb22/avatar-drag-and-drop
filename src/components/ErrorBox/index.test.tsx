@@ -17,7 +17,7 @@ describe('<ErrorBox />', () => {
         expect(
             screen.getByRole('button', { name: /try again/i })
         ).toBeInTheDocument()
-        expect(container).toMatchSnapshot()
+        expect(container.firstChild).toMatchSnapshot()
     })
 
     it('should call handleReset function on button click', () => {

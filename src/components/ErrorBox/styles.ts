@@ -4,8 +4,6 @@ import * as AvatarUpload from 'components/AvatarUpload/styles'
 
 export const ErrorBox = AvatarUpload.Content
 
-export const ImageContainer = AvatarUpload.ImageContainer
-
 export const ErrorInfo = styled.div`
     display: flex;
     flex-direction: column;

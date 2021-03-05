@@ -10,6 +10,6 @@ describe('<Button />', () => {
         expect(
             screen.getByRole('button', { name: /click here/i })
         ).toBeInTheDocument()
-        expect(container).toMatchSnapshot()
+        expect(container.firstChild).toMatchSnapshot()
     })
 })

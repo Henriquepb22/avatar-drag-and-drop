@@ -21,11 +21,9 @@ exports[`<Button /> should render button correctly 1`] = `
   cursor: pointer;
 }
 
-<div>
-  <button
-    class="c0"
-  >
-    click here
-  </button>
-</div>
+<button
+  class="c0"
+>
+  click here
+</button>
 `;

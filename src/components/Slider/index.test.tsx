@@ -8,7 +8,7 @@ describe('<Slider />', () => {
         const { container } = renderWithTheme(<Slider onChange={jest.fn} />)
 
         expect(screen.getByRole('slider')).toBeInTheDocument()
-        expect(container).toMatchSnapshot()
+        expect(container.firstChild).toMatchSnapshot()
     })
 
     it('should call onChange when value change', () => {

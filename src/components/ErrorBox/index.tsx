@@ -1,6 +1,7 @@
-import * as S from './styles'
+import Image from 'components/Image'
 
 import infoIcon from 'assets/img/icons/info.svg'
+import * as S from './styles'
 
 type ErrorBoxProps = {
     handleReset: () => void
@@ -9,9 +10,7 @@ type ErrorBoxProps = {
 const ErrorBox = ({ handleReset }: ErrorBoxProps) => {
     return (
         <S.ErrorBox>
-            <S.ImageContainer>
-                <img src={infoIcon} alt="exclamation point" />
-            </S.ImageContainer>
+            <Image src={infoIcon} altText="exclamation point" />
             <S.ErrorInfo>
                 <S.ErrorMessage>Sorry, the upload failed.</S.ErrorMessage>
                 <S.ErrorButton type="button" onClick={handleReset}>

@@ -1,16 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ErrorBox /> should render error box correctly 1`] = `
-.c0 {
-  display: grid;
-  grid-template-columns: 11.4rem 1fr;
-  grid-gap: 3.2rem;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -32,6 +22,24 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
 }
 
 .c2 {
+  max-width: 24rem;
+  max-height: 24rem;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.c0 {
+  display: grid;
+  grid-template-columns: 11.4rem 1fr;
+  grid-gap: 3.2rem;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -41,7 +49,7 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
   flex-direction: column;
 }
 
-.c3 {
+.c4 {
   color: #C64D32;
   font-size: 1.6rem;
   -webkit-letter-spacing: -0.02em;
@@ -51,7 +59,7 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
   line-height: 180%;
 }
 
-.c4 {
+.c5 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -70,37 +78,36 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
   text-decoration-line: underline;
 }
 
-.c4:hover {
+.c5:hover {
   cursor: pointer;
 }
 
-<div>
+<div
+  class="c0"
+>
   <div
-    class="c0"
+    class="c1"
   >
-    <div
-      class="c1"
-    >
-      <img
-        alt="exclamation point"
-        src="info.svg"
-      />
-    </div>
-    <div
+    <img
+      alt="exclamation point"
       class="c2"
+      src="info.svg"
+    />
+  </div>
+  <div
+    class="c3"
+  >
+    <p
+      class="c4"
     >
-      <p
-        class="c3"
-      >
-        Sorry, the upload failed.
-      </p>
-      <button
-        class="c4"
-        type="button"
-      >
-        Try again
-      </button>
-    </div>
+      Sorry, the upload failed.
+    </p>
+    <button
+      class="c5"
+      type="button"
+    >
+      Try again
+    </button>
   </div>
 </div>
 `;
