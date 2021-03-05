@@ -3,6 +3,7 @@ import AvatarUpload from 'components/AvatarUpload'
 import theme from 'styles/theme'
 
 import GlobalStyles from './styles/global'
+import 'styles.css'
 
 function App() {
     return (
