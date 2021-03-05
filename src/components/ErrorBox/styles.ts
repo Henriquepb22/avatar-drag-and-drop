@@ -2,10 +2,7 @@ import styled, { css } from 'styled-components'
 
 import * as AvatarUpload from 'components/AvatarUpload/styles'
 
-export const ErrorBox = styled.div`
-    display: flex;
-    align-items: center;
-`
+export const ErrorBox = AvatarUpload.Content
 
 export const ImageContainer = AvatarUpload.ImageContainer
 
