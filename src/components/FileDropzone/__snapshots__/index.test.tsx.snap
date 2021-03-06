@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FileDropzone /> should render file dropzone correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 1.4rem;
+  line-height: 180%;
+}
+
+.c0:hover {
+  cursor: pointer;
+}
+
+.c0:focus-within {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+.c1 {
+  color: #495567;
+  font-weight: 500;
+}
+
+.c1 > img {
+  margin-right: 1.2rem;
+}
+
+.c2 {
+  color: #677489;
+}
+
+.c3 {
+  height: 0;
+  width: 0;
+  border: none;
+  opacity: 0;
+}
+
+<label
+  class="c0"
+  for="uploadInput"
+>
+  <p
+    class="c1"
+  >
+    <img
+      alt="mountain and sun"
+      src="painting.svg"
+    />
+    Organization Logo
+  </p>
+  <p
+    class="c2"
+  >
+    Drop the image here or click to browse.
+  </p>
+  <input
+    accept="image/*"
+    class="c3"
+    id="uploadInput"
+    tabindex="0"
+    type="file"
+  />
+</label>
+`;
