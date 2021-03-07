@@ -40,7 +40,7 @@ export const cropImage = async (
         image.onload = () => {
             if (context) {
                 const needCompression =
-                    Math.max(canvas.width, canvas.height) > 1000
+                    Math.max(image.width, image.height) > 1000
 
                 canvas.width = needCompression ? image.width / 2 : image.width
                 canvas.height = needCompression
