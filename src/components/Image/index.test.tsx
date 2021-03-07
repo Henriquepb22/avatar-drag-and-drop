@@ -20,8 +20,7 @@ describe('<Image />', () => {
             <Image src="image.png" altText="some image" zoomLevel={1.5} />
         )
 
-        const image = screen.getByRole('img', { name: /some image/i })
-        expect(image).toHaveStyle({
+        expect(screen.getByRole('img', { name: /some image/i })).toHaveStyle({
             transform: 'scale(1.5)',
         })
     })

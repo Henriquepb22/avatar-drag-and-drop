@@ -1,5 +1,6 @@
 import { screen, waitFor } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
+import { getFileDataUrl } from 'utils/logic/helpers'
 import userEvent from '@testing-library/user-event'
 
 import AvatarUpload from '.'
@@ -10,7 +11,9 @@ const imageFile = new File(['image file'], 'image.png', {
 
 describe('<AvatarUpload />', () => {
     it('should render avatar upload correctly', () => {
-        const { container } = renderWithTheme(<AvatarUpload />)
+        const { container } = renderWithTheme(
+            <AvatarUpload handleImageData={jest.fn()} />
+        )
 
         expect(screen.getByLabelText(/organization logo/i)).toBeInTheDocument()
         expect(
@@ -23,15 +26,13 @@ describe('<AvatarUpload />', () => {
         const notImageFile = new File(['file test'], 'text.txt', {
             type: 'text/plain',
         })
-        renderWithTheme(<AvatarUpload />)
+        renderWithTheme(<AvatarUpload handleImageData={jest.fn()} />)
 
         const fileInput = screen.getByLabelText(
             /drop the image here/i
         ) as HTMLInputElement
 
-        await waitFor(() => {
-            userEvent.upload(fileInput, notImageFile)
-        })
+        userEvent.upload(fileInput, notImageFile)
 
         await waitFor(() => {
             expect(
@@ -44,15 +45,13 @@ describe('<AvatarUpload />', () => {
     })
 
     it("should reset entire process clicking on the 'X' icon", async () => {
-        renderWithTheme(<AvatarUpload />)
+        renderWithTheme(<AvatarUpload handleImageData={jest.fn()} />)
 
         const fileInput = screen.getByLabelText(
             /drop the image here/i
         ) as HTMLInputElement
 
-        await waitFor(() => {
-            userEvent.upload(fileInput, imageFile)
-        })
+        userEvent.upload(fileInput, imageFile)
 
         await waitFor(() => {
             const resetButton = screen.getByRole('button', { name: /reset/i })
@@ -63,5 +62,29 @@ describe('<AvatarUpload />', () => {
         expect(
             screen.getByLabelText(/drop the image here/i)
         ).toBeInTheDocument()
+    })
+
+    it('should give parent access to image raw data', async () => {
+        const handleImageData = jest.fn()
+        renderWithTheme(<AvatarUpload handleImageData={handleImageData} />)
+
+        const fileInput = screen.getByLabelText(
+            /drop the image here/i
+        ) as HTMLInputElement
+
+        const imageData = await getFileDataUrl(imageFile)
+
+        userEvent.upload(fileInput, imageFile)
+
+        await waitFor(() => {
+            expect(
+                screen.getByRole('img', { name: /you uploaded logo/i })
+            ).toBeInTheDocument()
+            expect(
+                screen.getByRole('button', { name: /save/i })
+            ).toBeInTheDocument()
+            expect(handleImageData).toHaveBeenCalledTimes(1)
+            expect(handleImageData).toHaveBeenCalledWith(imageData)
+        })
     })
 })

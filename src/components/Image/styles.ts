@@ -7,8 +7,8 @@ export const Wrapper = styled.div`
         justify-content: center;
         background: ${theme.colors.grayMedium};
         border-radius: 50%;
-        width: 11.4rem;
-        height: 11.4rem;
+        width: ${theme.sizes.image};
+        height: ${theme.sizes.image};
         overflow: hidden;
     `}
 `
@@ -18,9 +18,9 @@ type ImageProps = {
 }
 
 export const Image = styled.img<ImageProps>`
-    ${({ zoomLevel }) => css`
-        width: 22.8rem;
-        height: 22.8rem;
+    ${({ theme, zoomLevel }) => css`
+        width: calc(${theme.sizes.image} * 2);
+        height: calc(${theme.sizes.image} * 2);
         transform: scale(${zoomLevel});
         object-fit: cover;
     `}

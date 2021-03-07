@@ -1,4 +1,8 @@
 export default {
+    sizes: {
+        container: '130rem',
+        image: '11.4rem',
+    },
     colors: {
         grayLight: '#F2F5F8' /* Gray 01 */,
         grayMedium: '#C3CBD5' /* Gray 04 */,

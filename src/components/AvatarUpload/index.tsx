@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { cropImage, getFileDataUrl } from 'utils/logic/helpers'
 import FileDropzone from 'components/FileDropzone'
 import ErrorBox from 'components/ErrorBox'
@@ -9,11 +9,21 @@ import Image from 'components/Image'
 import closeIcon from 'assets/img/icons/close.svg'
 import * as S from './styles'
 
-const AvatarUpload = () => {
+type AvatarUploadeProps = {
+    handleImageData?: (imageData: string) => void
+}
+
+const AvatarUpload = ({ handleImageData }: AvatarUploadeProps) => {
     const [uploadedFile, setUploadedFile] = useState<string | null>(null)
     const [zoomLevel, setZoomLevel] = useState(5)
     const [error, setError] = useState(false)
     const [isSaved, setIsSaved] = useState(false)
+
+    useEffect(() => {
+        if (handleImageData && uploadedFile) {
+            handleImageData(uploadedFile)
+        }
+    }, [uploadedFile, handleImageData])
 
     const handleFileUpload = async (file: File) => {
         setUploadedFile(null)

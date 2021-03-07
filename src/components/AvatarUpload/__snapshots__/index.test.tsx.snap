@@ -59,6 +59,7 @@ exports[`<AvatarUpload /> should render avatar upload correctly 1`] = `
   border: 2px dashed #C7CDD3;
   border-radius: 0.8rem;
   padding: 3.2rem;
+  margin-top: 3.2rem;
   width: 55rem;
   height: 18rem;
   position: relative;

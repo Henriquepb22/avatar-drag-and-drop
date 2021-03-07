@@ -28,7 +28,7 @@ export const Wrapper = styled.label<WrapperProps>`
 
         ${isSaved &&
         css`
-            padding-left: calc(11.4rem + ${theme.spacings.large});
+            padding-left: calc(${theme.sizes.image} + ${theme.spacings.large});
         `}
     `}
 `

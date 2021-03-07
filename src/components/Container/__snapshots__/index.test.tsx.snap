@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Image /> should render image correctly 1`] = `
+exports[`<Container /> should render container correctly 1`] = `
 .c0 {
+  max-width: 130rem;
+  margin: 0 auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -14,29 +16,13 @@ exports[`<Image /> should render image correctly 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background: #C3CBD5;
-  border-radius: 50%;
-  width: 11.4rem;
-  height: 11.4rem;
-  overflow: hidden;
-}
-
-.c1 {
-  width: calc(11.4rem * 2);
-  height: calc(11.4rem * 2);
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  object-fit: cover;
 }
 
 <div
   class="c0"
 >
-  <img
-    alt="some image"
-    class="c1"
-    src="image.png"
-  />
+  <h2>
+    Hello
+  </h2>
 </div>
 `;

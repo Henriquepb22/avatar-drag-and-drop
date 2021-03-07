@@ -12,6 +12,7 @@ export const Wrapper = styled.div<WrapperProps>`
         border: 2px dashed ${theme.colors.border};
         border-radius: ${theme.radius.medium};
         padding: ${theme.spacings.large};
+        margin-top: ${theme.spacings.large};
         width: 55rem;
         height: 18rem;
         position: relative;
@@ -26,7 +27,7 @@ export const Wrapper = styled.div<WrapperProps>`
 export const Content = styled.div`
     ${({ theme }) => css`
         display: grid;
-        grid-template-columns: 11.4rem 1fr;
+        grid-template-columns: ${theme.sizes.image} 1fr;
         grid-gap: ${theme.spacings.large};
         align-items: center;
     `}
