@@ -1,43 +1,27 @@
-import React, { useState } from 'react'
-import { handleFileRead, isImageFile } from 'utils/logic/helpers'
+import { useState } from 'react'
+import { cropImage, getFileDataUrl } from 'utils/logic/helpers'
+import FileDropzone from 'components/FileDropzone'
 import ErrorBox from 'components/ErrorBox'
+import Button from 'components/Button'
+import Slider from 'components/Slider'
+import Image from 'components/Image'
 
-import paintingIcon from 'assets/img/icons/painting.svg'
 import closeIcon from 'assets/img/icons/close.svg'
 import * as S from './styles'
 
 const AvatarUpload = () => {
     const [uploadedFile, setUploadedFile] = useState<string | null>(null)
+    const [zoomLevel, setZoomLevel] = useState(5)
     const [error, setError] = useState(false)
-
-    const onDrop = (e: React.DragEvent) => {
-        e.preventDefault()
-        if (e.dataTransfer.files) {
-            handleFileUpload(e.dataTransfer.files[0])
-        }
-    }
-
-    const onDragOver = (e: React.DragEvent<HTMLLabelElement>) => {
-        e.preventDefault()
-    }
-
-    const handleFileSelected = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault()
-        if (e.currentTarget.files) {
-            handleFileUpload(e.currentTarget.files[0])
-        }
-    }
+    const [isSaved, setIsSaved] = useState(false)
 
     const handleFileUpload = async (file: File) => {
-        const isValidImage = isImageFile(file)
-        if (isValidImage) {
-            try {
-                const imageData = await handleFileRead(file)
-                setUploadedFile(imageData)
-            } catch (error) {
-                setError(!!error)
-            }
-        } else {
+        setUploadedFile(null)
+        setIsSaved(false)
+        try {
+            const imageData = await getFileDataUrl(file)
+            setUploadedFile(imageData)
+        } catch (error) {
             setError(true)
         }
     }
@@ -47,45 +31,55 @@ const AvatarUpload = () => {
         setError(false)
     }
 
+    const handleSave = async () => {
+        if (uploadedFile) {
+            const croppedImage = await cropImage(uploadedFile, zoomLevel)
+            setUploadedFile(croppedImage)
+            setIsSaved(true)
+        }
+    }
+
+    // Scaling image from 100% to 250%
+    const handleCrop = (cropBy: number) => setZoomLevel((cropBy + 5) / 10)
+
     return (
-        <S.Wrapper>
+        <S.Wrapper removeBorder={!!error || (!!uploadedFile && !isSaved)}>
+            {isSaved && uploadedFile && (
+                <Image
+                    src={uploadedFile}
+                    altText="you cropped logo"
+                    zoomLevel={zoomLevel}
+                />
+            )}
             {error && <ErrorBox handleReset={handleReset} />}
-            {!error && !uploadedFile && (
-                <>
-                    <S.Label
-                        htmlFor="uploadInput"
-                        onDrop={onDrop}
-                        onDragOver={onDragOver}
-                        tabIndex={0}
-                    >
-                        <S.LabelText>
-                            <img src={paintingIcon} alt="mountain and sun" />
-                            Organization Logo
-                        </S.LabelText>
-                        <S.LabelPlaceholder>
-                            Drop the image here or click to browse.
-                        </S.LabelPlaceholder>
-                    </S.Label>
-                    <S.Input
-                        type="file"
-                        id="uploadInput"
-                        accept="image/*"
-                        onChange={handleFileSelected}
+            {((!error && !uploadedFile) || isSaved) && (
+                <FileDropzone
+                    isSaved={isSaved}
+                    handleFileUpload={handleFileUpload}
+                />
+            )}
+            {!!uploadedFile && !isSaved && (
+                <S.Content>
+                    <Image
+                        src={uploadedFile}
+                        altText="you uploaded logo"
+                        zoomLevel={zoomLevel}
                     />
-                </>
+                    <S.Form>
+                        <Slider onChange={handleCrop} />
+                        <Button type="button" onClick={handleSave}>
+                            Save
+                        </Button>
+                    </S.Form>
+                </S.Content>
             )}
-            {!!uploadedFile && (
-                <S.ImageContainer>
-                    <img src={uploadedFile} alt="you uploaded logo" />
-                </S.ImageContainer>
-            )}
-            {(error || uploadedFile) && (
+            {(error || !!uploadedFile) && !isSaved && (
                 <S.CloseButton
                     type="button"
                     aria-label="reset"
                     onClick={handleReset}
                 >
-                    <img src={closeIcon} alt="cross" />
+                    <img src={closeIcon} alt="close" />
                 </S.CloseButton>
             )}
         </S.Wrapper>

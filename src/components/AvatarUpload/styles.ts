@@ -1,35 +1,59 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div`
-    ${({ theme }) => css`
+import * as Button from 'components/Button/styles'
+
+type WrapperProps = {
+    removeBorder: boolean
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+    ${({ theme, removeBorder }) => css`
         background: ${theme.colors.grayLight};
         border: 2px dashed ${theme.colors.border};
         border-radius: ${theme.radius.medium};
-        padding: ${theme.spacings.xlarge};
-        max-width: 55.3rem;
-        height: 17.7rem;
+        padding: ${theme.spacings.large};
+        width: 55rem;
+        height: 18rem;
         position: relative;
+
+        ${removeBorder &&
+        css`
+            border-color: transparent;
+        `}
     `}
 `
 
-export const ImageContainer = styled.div`
+export const Content = styled.div`
+    ${({ theme }) => css`
+        display: grid;
+        grid-template-columns: 11.4rem 1fr;
+        grid-gap: ${theme.spacings.large};
+        align-items: center;
+    `}
+`
+
+export const Form = styled.form`
     ${({ theme }) => css`
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background: ${theme.colors.grayMedium};
-        border-radius: 50%;
-        width: 11.3rem;
-        height: 11.3rem;
-        overflow: hidden;
+        flex-direction: column;
+        margin-right: ${theme.spacings.large};
+
+        > :not(:last-child) {
+            margin-bottom: ${theme.spacings.large};
+        }
+
+        ${Button.Wrapper} {
+            align-self: flex-end;
+            width: 11rem;
+        }
     `}
 `
 
 export const CloseButton = styled.button`
     ${({ theme }) => css`
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 2rem;
+        right: 2rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -43,48 +67,4 @@ export const CloseButton = styled.button`
             cursor: pointer;
         }
     `}
-`
-
-export const Label = styled.label`
-    ${({ theme }) => css`
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        font-size: ${theme.font.sizes.small};
-        line-height: 180%;
-
-        &:hover {
-            cursor: pointer;
-        }
-    `}
-`
-
-export const LabelText = styled.p`
-    ${({ theme }) => css`
-        color: ${theme.colors.grayDarkness};
-        font-weight: ${theme.font.medium};
-
-        > img {
-            margin-right: ${theme.spacings.small};
-        }
-    `}
-`
-
-export const LabelPlaceholder = styled.p`
-    ${({ theme }) => css`
-        color: ${theme.colors.grayDark};
-    `}
-`
-
-export const Input = styled.input`
-    height: 0;
-    width: 0;
-    border: none;
-    opacity: 0;
 `

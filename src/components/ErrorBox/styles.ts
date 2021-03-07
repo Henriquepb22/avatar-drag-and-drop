@@ -1,8 +1,14 @@
 import styled, { css } from 'styled-components'
 
 import * as AvatarUpload from 'components/AvatarUpload/styles'
+import * as Image from 'components/Image/styles'
 
-export const ErrorBox = AvatarUpload.Content
+export const ErrorBox = styled(AvatarUpload.Content)`
+    ${Image.Image} {
+        width: auto;
+        height: auto;
+    }
+`
 
 export const ErrorInfo = styled.div`
     display: flex;

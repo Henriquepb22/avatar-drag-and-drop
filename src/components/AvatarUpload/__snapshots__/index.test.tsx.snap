@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AvatarUpload /> should render avatar upload correctly 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 1.4rem;
+  line-height: 180%;
+}
+
+.c1:hover {
+  cursor: pointer;
+}
+
+.c1:focus-within {
+  outline: -webkit-focus-ring-color auto 1px;
+}
+
+.c2 {
+  color: #495567;
+  font-weight: 500;
+}
+
+.c2 > img {
+  margin-right: 1.2rem;
+}
+
+.c3 {
+  color: #677489;
+}
+
+.c4 {
+  height: 0;
+  width: 0;
+  border: none;
+  opacity: 0;
+}
+
+.c0 {
+  background: #F2F5F8;
+  border: 2px dashed #C7CDD3;
+  border-radius: 0.8rem;
+  padding: 3.2rem;
+  width: 55rem;
+  height: 18rem;
+  position: relative;
+}
+
+<div
+  class="c0"
+>
+  <label
+    class="c1"
+    for="uploadInput"
+  >
+    <p
+      class="c2"
+    >
+      <img
+        alt="mountain and sun"
+        src="painting.svg"
+      />
+      Organization Logo
+    </p>
+    <p
+      class="c3"
+    >
+      Drop the image here or click to browse.
+    </p>
+    <input
+      accept="image/*"
+      class="c4"
+      id="uploadInput"
+      tabindex="0"
+      type="file"
+    />
+  </label>
+</div>
+`;

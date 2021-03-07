@@ -4,7 +4,7 @@ import { screen } from '@testing-library/dom'
 import Image from '.'
 
 describe('<Image />', () => {
-    it('should render Image correctly', () => {
+    it('should render image correctly', () => {
         const { container } = renderWithTheme(
             <Image src="image.png" altText="some image" />
         )

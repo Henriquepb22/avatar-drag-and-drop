@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Image /> should render Image correctly 1`] = `
+exports[`<Image /> should render image correctly 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -22,11 +22,12 @@ exports[`<Image /> should render Image correctly 1`] = `
 }
 
 .c1 {
-  max-width: 24rem;
-  max-height: 24rem;
+  width: 22.8rem;
+  height: 22.8rem;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
+  object-fit: cover;
 }
 
 <div

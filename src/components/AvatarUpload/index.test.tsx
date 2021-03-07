@@ -16,37 +16,13 @@ describe('<AvatarUpload />', () => {
         expect(
             screen.getByLabelText(/drop the image here/i)
         ).toBeInTheDocument()
-        expect(container.firstChild).toHaveStyle({
-            border: '2px dashed #C7CDD3',
-            background: '#F2F5F8',
-        })
-    })
-
-    it('should upload image file correctly', async () => {
-        renderWithTheme(<AvatarUpload />)
-
-        const fileInput = screen.getByLabelText(
-            /drop the image here/i
-        ) as HTMLInputElement
-
-        await waitFor(() => {
-            userEvent.upload(fileInput, imageFile)
-        })
-
-        await waitFor(() => {
-            expect(fileInput.files).toHaveLength(1)
-            expect(fileInput.files?.item(0)).toStrictEqual(imageFile)
-            expect(
-                screen.getByRole('button', { name: /reset/i })
-            ).toBeInTheDocument()
-            expect(
-                screen.getByRole('img', { name: /you uploaded logo/i })
-            ).toBeInTheDocument()
-        })
+        expect(container.firstChild).toMatchSnapshot()
     })
 
     it('should show error when uploading files that are not images', async () => {
-        const file = new File(['file test'], 'text.txt', { type: 'text/plain' })
+        const notImageFile = new File(['file test'], 'text.txt', {
+            type: 'text/plain',
+        })
         renderWithTheme(<AvatarUpload />)
 
         const fileInput = screen.getByLabelText(
@@ -54,7 +30,7 @@ describe('<AvatarUpload />', () => {
         ) as HTMLInputElement
 
         await waitFor(() => {
-            userEvent.upload(fileInput, file)
+            userEvent.upload(fileInput, notImageFile)
         })
 
         await waitFor(() => {

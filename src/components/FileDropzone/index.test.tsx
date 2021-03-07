@@ -64,7 +64,7 @@ describe('<FileDropzone />', () => {
         const fileInput = screen.getByLabelText(/drop the image here/i)
 
         const isPrevented = fireEvent.dragOver(fileInput)
-        expect(isPrevented).toBe(false)
+        expect(isPrevented).toBeFalsy()
     })
 
     it('should be accessible by tab', () => {
@@ -75,5 +75,15 @@ describe('<FileDropzone />', () => {
         expect(fileInput).not.toHaveFocus()
         userEvent.tab()
         expect(fileInput).toHaveFocus()
+    })
+
+    it('should add correct padding when saved is true', () => {
+        const { container } = renderWithTheme(
+            <FileDropzone handleFileUpload={jest.fn()} isSaved />
+        )
+
+        expect(container.firstChild).toHaveStyle({
+            'padding-left': 'calc(11.4rem + 3.2rem)',
+        })
     })
 })

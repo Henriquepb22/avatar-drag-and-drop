@@ -19,8 +19,9 @@ type ImageProps = {
 
 export const Image = styled.img<ImageProps>`
     ${({ zoomLevel }) => css`
-        max-width: 24rem;
-        max-height: 24rem;
+        width: 22.8rem;
+        height: 22.8rem;
         transform: scale(${zoomLevel});
+        object-fit: cover;
     `}
 `

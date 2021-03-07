@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ErrorBox /> should render error box correctly 1`] = `
-.c1 {
+.c2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -21,12 +21,13 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
   overflow: hidden;
 }
 
-.c2 {
-  max-width: 24rem;
-  max-height: 24rem;
+.c4 {
+  width: 22.8rem;
+  height: 22.8rem;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
+  object-fit: cover;
 }
 
 .c0 {
@@ -39,7 +40,12 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c1 .c3 {
+  width: auto;
+  height: auto;
+}
+
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -49,7 +55,7 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
   flex-direction: column;
 }
 
-.c4 {
+.c6 {
   color: #C64D32;
   font-size: 1.6rem;
   -webkit-letter-spacing: -0.02em;
@@ -59,7 +65,7 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
   line-height: 180%;
 }
 
-.c5 {
+.c7 {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -78,32 +84,32 @@ exports[`<ErrorBox /> should render error box correctly 1`] = `
   text-decoration-line: underline;
 }
 
-.c5:hover {
+.c7:hover {
   cursor: pointer;
 }
 
 <div
-  class="c0"
+  class="c0 c1"
 >
   <div
-    class="c1"
+    class="c2"
   >
     <img
       alt="exclamation point"
-      class="c2"
+      class="c3 c4"
       src="info.svg"
     />
   </div>
   <div
-    class="c3"
+    class="c5"
   >
     <p
-      class="c4"
+      class="c6"
     >
       Sorry, the upload failed.
     </p>
     <button
-      class="c5"
+      class="c7"
       type="button"
     >
       Try again
