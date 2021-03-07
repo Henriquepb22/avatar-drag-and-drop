@@ -10,6 +10,7 @@ Developed using the following tech stack:
 - [Typescript](https://www.typescriptlang.org/)
 - [Styled-components](https://styled-components.com/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged) for better development experience
 
 Test it live [**here**](https://avatar-drag-and-drop.netlify.app/) (hosted on [Netlify](https://www.netlify.com/))
 
